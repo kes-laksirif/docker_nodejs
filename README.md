@@ -186,3 +186,34 @@ Hello world
 We hope this tutorial helped you get up and running a simple Node.js application on Docker.
 
 You can find more information about Docker and Node.js on Docker in the following places:
+
+##### Ref
+https://nodejs.org/de/docs/guides/nodejs-docker-webapp/
+
+### Summary
+Docker Tutorial
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+
+List dockers
+docker ps -a
+
+Start a docker
+docker start 595a8adec17f
+
+List running dockers
+docker ps
+
+Connect to a running docker
+docker exec -it awesome_chaplygin /bin/bash
+
+Ref
+https://docs.docker.com/engine/reference/commandline/exec/
+
+My Docker - Get Started
+https://hub.docker.com/r/laksiriben/get-started
+
+Docker Guide
+https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/#upgrade-docker-ce
+
+Kill running processes
+https://itsfoss.com/could-not-get-lock-error/
