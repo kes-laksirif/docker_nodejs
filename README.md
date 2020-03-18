@@ -118,34 +118,35 @@ CMD [ "node", "server.js" ]
 #### .dockerignore file
 
 Create a .dockerignore file in the same directory as your Dockerfile with following content:
-
+```
 node_modules
 npm-debug.log
-
+```
 This will prevent your local modules and debug logs from being copied onto your Docker image and possibly overwriting modules installed within your image.
 Building your image
 
 Go to the directory that has your Dockerfile and run the following command to build the Docker image. The -t flag lets you tag your image so it's easier to find later using the docker images command:
-
+```
 docker build -t <your username>/node-web-app .
-
+```
 Your image will now be listed by Docker:
-
+```
 $ docker images
-
+```
+```
 # Example
 REPOSITORY                      TAG        ID              CREATED
 node                            10         1934b0b038d1    5 days ago
 <your username>/node-web-app    latest     d64d3505b0d2    1 minute ago
-
+```
 Run the image
 
 Running your image with -d runs the container in detached mode, leaving the container running in the background. The -p flag redirects a public port to a private port inside the container. Run the image you previously built:
-
+```
 docker run -p 49160:8080 -d <your username>/node-web-app
-
+```
 Print the output of your app:
-
+```
 # Get container ID
 $ docker ps
 
@@ -154,26 +155,26 @@ $ docker logs <container id>
 
 # Example
 Running on http://localhost:8080
-
+```
 If you need to go inside the container you can use the exec command:
-
+```
 # Enter the container
 $ docker exec -it <container id> /bin/bash
-
+```
 Test
 
 To test your app, get the port of your app that Docker mapped:
-
+```
 $ docker ps
 
 # Example
 ID            IMAGE                                COMMAND    ...   PORTS
 ecce33b30ebf  <your username>/node-web-app:latest  npm start  ...   49160->8080
-
+```
 In the example above, Docker mapped the 8080 port inside of the container to the port 49160 on your machine.
 
 Now you can call your app using curl (install if needed via: sudo apt-get install curl):
-
+```
 $ curl -i localhost:49160
 
 HTTP/1.1 200 OK
@@ -185,7 +186,7 @@ Date: Mon, 13 Nov 2017 20:53:59 GMT
 Connection: keep-alive
 
 Hello world
-
+```
 We hope this tutorial helped you get up and running a simple Node.js application on Docker.
 
 You can find more information about Docker and Node.js on Docker in the following places:
@@ -197,26 +198,34 @@ https://nodejs.org/de/docs/guides/nodejs-docker-webapp/
 Docker Tutorial
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
 
-List dockers
+#### List dockers
+```
 docker ps -a
+```
 
-Start a docker
+#### Start a docker
+```
 docker start 595a8adec17f
+```
 
-List running dockers
+#### List running dockers
+```
 docker ps
+```
 
-Connect to a running docker
+#### Connect to a running docker
+```
 docker exec -it awesome_chaplygin /bin/bash
+```
 
-Ref
+#### Ref
 https://docs.docker.com/engine/reference/commandline/exec/
 
-My Docker - Get Started
+#### My Docker - Get Started
 https://hub.docker.com/r/laksiriben/get-started
 
-Docker Guide
+#### Docker Guide
 https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/#upgrade-docker-ce
 
-Kill running processes
+#### Kill running processes
 https://itsfoss.com/could-not-get-lock-error/
