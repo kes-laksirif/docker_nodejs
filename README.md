@@ -125,6 +125,7 @@ npm-debug.log
 This will prevent your local modules and debug logs from being copied onto your Docker image and possibly overwriting modules installed within your image.
 Building your image
 
+#### To build the docker image
 Go to the directory that has your Dockerfile and run the following command to build the Docker image. The -t flag lets you tag your image so it's easier to find later using the docker images command:
 ```
 docker build -t <your username>/node-web-app .
@@ -139,7 +140,7 @@ REPOSITORY                      TAG        ID              CREATED
 node                            10         1934b0b038d1    5 days ago
 <your username>/node-web-app    latest     d64d3505b0d2    1 minute ago
 ```
-Run the image
+#### Run the image - This is required even after a modification
 
 Running your image with -d runs the container in detached mode, leaving the container running in the background. The -p flag redirects a public port to a private port inside the container. Run the image you previously built:
 ```
@@ -208,6 +209,11 @@ docker ps -a
 docker start 595a8adec17f
 ```
 
+#### Stop a docker
+```
+docker stop 595a8adec17f
+```
+
 #### List running dockers
 ```
 docker ps
@@ -217,6 +223,9 @@ docker ps
 ```
 docker exec -it awesome_chaplygin /bin/bash
 ```
+
+#### Remove Dockers/ Images
+https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
 
 #### Ref
 https://docs.docker.com/engine/reference/commandline/exec/
